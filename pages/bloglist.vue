@@ -62,6 +62,7 @@ import { db } from '../plugins/firebase'
 const blogsCollectionRef = collection(db, 'blogs')
 const commentsCollectionRef = collection(db, 'comments')
 const q = query(blogsCollectionRef, orderBy('created_at', 'desc'))
+const c = query(commentsCollectionRef, orderBy('created_at', 'asc'))
 
 export default {
   name: 'BlogsListPage',
@@ -85,7 +86,7 @@ export default {
     onSnapshot(q, (querySnapshot) => {
       this.blogs = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
     })
-    onSnapshot(commentsCollectionRef, (querySnapshot) => {
+    onSnapshot(c, (querySnapshot) => {
       this.comments = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
     })
   },
