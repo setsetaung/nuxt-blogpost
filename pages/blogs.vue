@@ -2,20 +2,12 @@
 /* eslint-disable import/no-duplicates */
 <template>
   <v-container>
-    <div v-if="user">
-      <h1>New Blog</h1>
-      <v-text-field v-model="title" label="Title" />
-      <v-textarea v-model="content" label="Content" />
-      <v-btn color="primary" @click="add">
-        Add Blog
-      </v-btn>
-    </div>
-    <div v-else>
-      <p>先ずログインしてください</p>
-      <nuxt-link to="/login">
-        Login
-      </nuxt-link>
-    </div>
+    <h1>New Blog</h1>
+    <v-text-field v-model="title" label="Title" />
+    <v-textarea v-model="content" label="Content" />
+    <v-btn color="primary" @click="add">
+      Add Blog
+    </v-btn>
   </v-container>
 </template>
 

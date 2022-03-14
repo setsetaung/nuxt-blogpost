@@ -1,18 +1,10 @@
 <template>
   <v-container>
-    <div v-if="user">
-      <h1>Write Comment</h1>
-      <v-textarea v-model="comment" label="Comment" />
-      <v-btn color="primary" @click="add">
-        Add Comment
-      </v-btn>
-    </div>
-    <div v-else>
-      <p>先ずログインしてください</p>
-      <nuxt-link to="/login">
-        Login
-      </nuxt-link>
-    </div>
+    <h1>Write Comment</h1>
+    <v-textarea v-model="comment" label="Comment" />
+    <v-btn color="primary" @click="add">
+      Add Comment
+    </v-btn>
   </v-container>
 </template>
 

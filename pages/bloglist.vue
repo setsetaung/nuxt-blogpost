@@ -2,11 +2,13 @@
   <div>
     <h1>
       BlogsList
-      <v-btn to="/blogs">
-        <v-icon small>
-          mdi-plus
-        </v-icon>
-      </v-btn>
+      <div v-if="user">
+        <v-btn to="/blogs">
+          <v-icon small>
+            mdi-plus
+          </v-icon>
+        </v-btn>
+      </div>
     </h1>
     <v-container>
       <v-row>
@@ -28,23 +30,25 @@
                 </div>
               </ul>
             </v-card>
-            <v-card-actions>
-              <v-btn @click="remove(blog.id)">
-                <v-icon small>
-                  mdi-delete
-                </v-icon>
-              </v-btn>
-              <v-btn :to="{ name: 'comments', query: { id: blog.id }}">
-                <v-icon small>
-                  mdi-comment
-                </v-icon>
-              </v-btn>
-              <v-btn :to="{ name: 'editblog', query: { id: blog.id }}">
-                <v-icon small>
-                  mdi-lead-pencil
-                </v-icon>
-              </v-btn>
-            </v-card-actions>
+            <div v-if="user">
+              <v-card-actions>
+                <v-btn @click="remove(blog.id)">
+                  <v-icon small>
+                    mdi-delete
+                  </v-icon>
+                </v-btn>
+                <v-btn :to="{ name: 'comments', query: { id: blog.id }}">
+                  <v-icon small>
+                    mdi-comment
+                  </v-icon>
+                </v-btn>
+                <v-btn :to="{ name: 'editblog', query: { id: blog.id }}">
+                  <v-icon small>
+                    mdi-lead-pencil
+                  </v-icon>
+                </v-btn>
+              </v-card-actions>
+            </div>
           </v-card>
         </v-col>
       </v-row>

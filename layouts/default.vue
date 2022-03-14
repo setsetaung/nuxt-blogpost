@@ -8,7 +8,7 @@
       <v-spacer />
       <div v-if="user">
         <h5>
-          {{ user.displayName }}さん
+          {{ user.displayName }}
           <v-spacer />
           <v-btn @click="logout">
             logout
@@ -67,5 +67,8 @@ export default {
   background: url('../assets/nuxt.png');
   background-size: cover;
   height: cover;
+}
+.btn {
+  position: fixed;
 }
 </style>
